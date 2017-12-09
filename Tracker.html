@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+        <head>
+                <script src="jquery-3.2.1.min.js"></script>
+                </head>
+<body>
+
+<h2>Iniciativa</h2>
+
+
+  Personagem:<br>
+  <input id="Nome" type="text" name="firstname" value="">
+  <br>
+  Modificador:<br>
+  <input  id="Hello" type="text" name="lastname" value="">
+  <br><br>
+  
+  <input type="button" value="Com Rolagem de Dados" onclick="myFunction(1)">
+  <input type="button" value="Sem Rolagem de Dados" onclick="myFunction(0)">
+
+
+<p id="demo"></p>
+
+
+
+
+<script>
+
+var cars = [];
+
+function sortR(){
+    cars.sort(function (cars1, cars2) {
+        var first =Number(cars1.split(' ')[1]);
+        var second =Number(cars2.split(' ')[1]);
+    return first - second;
+});
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function myFunction(a){
+    var newArray = document.getElementById("Nome").value;
+	var newArray2 =  document.getElementById("Hello").value;
+    var number = Number(newArray2);
+    var randomnumber = getRndInteger(1,20);
+
+    if(a)
+        number += randomnumber;
+    else
+        console.log("SEM ROLAGEM DE DADOS");
+
+    newArray2 = number.toString();
+
+    console.log("Dado Aleatorio " + randomnumber);
+    console.log("Valor Totalizado " + number);
+     var Numb = newArray + " " + newArray2 ;
+     cars.push(Numb);
+
+   
+    sortR();
+
+
+    console.log(cars);
+    var fLen, text, i;
+
+
+
+      text = "<ol>";
+
+
+
+
+fLen = cars.length;
+for (i = 0; i < fLen; i++) {
+    text += "<li>" + cars[i] + "</li>";
+}
+
+document.getElementById("demo").innerHTML = text;
+
+
+
+ }
+
+</script>
+<script>
+
+/* Note carsSort() Investigate reason  Inside myFunction();*/
+    </script>
+</body>
+</html>
+
